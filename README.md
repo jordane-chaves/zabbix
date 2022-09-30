@@ -34,7 +34,7 @@ $ tail -f /var/log/zabbix/zabbix_server.log
 
 ## Credenciais Padrões
 
-**URL:** http://<IP-DO-SERVIDOR>/zabbix <br>
+**URL:** http://IP-DO-SERVIDOR/zabbix <br>
 **Usuário:** Admin <br>
 **Senha:** zabbix
 
