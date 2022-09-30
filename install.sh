@@ -17,22 +17,27 @@ fi
 get_zbx_version() {
   zbx_versions=('6.0' '5.4')
 
-  echo "Selecione a versão do Zabbix:"
+  if [ "$so_version" == '18.04' ];
+  then
+    zbx_version='5.4'
+  else
+    echo "Selecione a versão do Zabbix:"
 
-  select selected in "${zbx_versions[@]}";
-  do
-    case $selected in
-      "${zbx_versions[$REPLY - 1]}")
-        zbx_version=$selected
-        clear
-        break
-      ;;
-      *)
-        echo "Opcao Invalida!"
-        exit 1
-      ;;
-    esac
-  done
+    select selected in "${zbx_versions[@]}";
+    do
+      case $selected in
+        "${zbx_versions[$REPLY - 1]}")
+          zbx_version=$selected
+          clear
+          break
+        ;;
+        *)
+          echo "Opcao Invalida!"
+          exit 1
+        ;;
+      esac
+    done
+  fi
 }
 
 create_password() {
