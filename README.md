@@ -32,12 +32,9 @@ Verifique os logs caso ocorra algum erro:
 $ tail -f /var/log/zabbix/zabbix_server.log
 ```
 
-## Iniciar Zabbix
+## Credenciais Padrões
 
-URL: http://IPDOSERVIDOR/zabbix
-
-**CREDENCIAIS PADRÕES:**
-
+**URL:** http://<IP-DO-SERVIDOR>/zabbix <br>
 **Usuário:** Admin <br>
 **Senha:** zabbix
 
