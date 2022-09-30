@@ -1,22 +1,20 @@
-# Instalação do Zabbix no Ubuntu
+<h1 align="center">Instalação do Zabbix no Ubuntu</h1>
 
-Automatiza a instalação do Zabbix no sistema Ubuntu.
+<p align="center">Automatiza a instalação do Zabbix no sistema Ubuntu.</p>
 
-O script detecta automaticamente qual versão o sistema operacional está rodando e instala o Zabbix correto, atualmente suporta as versões 18.04 e 20.04 do Ubuntu.
+O script instala o Zabbix de acordo com a versão do Ubuntu, para o Ubuntu 18.04 será instalado a versão 5.4 do Zabbix e para versões posteriores do sistema operacional, será apresentado um menu para escolha entre as versões 5.4 ou 6.0 do Zabbix.
 
-
+> Foram feitos testes apenas nas versões 18.04 e 20.04 do Ubuntu.
 
 ## Como Usar?
 
-1. Acesse o usuário root
+Acesse com o usuário root
 
 ```bash
 sudo su
 ```
 
-
-
-2. Execute o comando abaixo para efetuar a instalação:
+Execute o comando abaixo para efetuar a instalação:
 
 ```bash
 wget https://raw.githubusercontent.com/jordane-chaves/zabbix/main/install.sh && chmod u+x install.sh && ./install.sh && rm -rf install.sh
@@ -24,38 +22,9 @@ wget https://raw.githubusercontent.com/jordane-chaves/zabbix/main/install.sh && 
 
 > Ao iniciar o script irá solicitar que selecione a versão e a senha para ser configurada no banco de dados do zabbix.
 
-
-
 Agora é só aguardar a instalação finalizar e ser feliz 🎉
 
-
-
-## Opcional
-
-### SSH
-
-Se quiser acessar a máquina via SSH, execute os comandos abaixo:
-
-> Estes comandos vão habilitar a porta de acesso 2225 e dar permissão de login com o usuário root.
-
-```bash
-$ sed -i 's/^#Port\s[0-9]\+$/Port 2225/g' /etc/ssh/sshd_config
-$ sed -i 's/^#PermitRootLogin\sprohibit-password$/PermitRootLogin yes/g' /etc/ssh/sshd_config
-$ service sshd restart
-```
-
-
-
-Para reverter essas configurações:
-
-```bash
-$ sed -i 's/^Port\s[0-9]\+$/#Port 22/g' /etc/ssh/sshd_config
-$ sed -i 's/^PermitRootLogin\syes$/#PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
-```
-
-
-
-### Logs
+## Logs
 
 Verifique os logs caso ocorra algum erro:
 
@@ -63,20 +32,14 @@ Verifique os logs caso ocorra algum erro:
 $ tail -f /var/log/zabbix/zabbix_server.log
 ```
 
+## Iniciar Zabbix
 
+URL: http://IPDOSERVIDOR/zabbix
 
-## Iniciar zabbix
+**CREDENCIAIS PADRÕES:**
 
-http://IPDOSERVIDOR/zabbix
-
-
-
-Login e senha padrão (lembre-se de alterar):
-
-**Usuário:** Admin
+**Usuário:** Admin <br>
 **Senha:** zabbix
-
-
 
 ## Autor
 
